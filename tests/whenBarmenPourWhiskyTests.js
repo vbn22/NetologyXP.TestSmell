@@ -34,9 +34,9 @@ suite('when barmen pour whisky', function () {
 
     suite('i ask -10 grams', function () {
         test('I get an error', function (done) {
-                var iAskVolume = -10;
-                expect(() => pour(this.whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
-                done();
+            var iAskVolume = -10;
+            expect(() => pour(this.whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
+            done();
         });
 
 
@@ -44,17 +44,11 @@ suite('when barmen pour whisky', function () {
 
     suite('i ask 500 grams', function() {
         test('Barmen said there is no such glass', function(done) {
+            var iAskVolume = 500;
+            var whisky = 1;
 
-            username().then(un => {
-                console.log(un);
-                if (un === "alex4Zero") {
-                }
-                var iAskVolume = 500;
-                var whisky = 1;
-
-                expect(() => pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
-                done();
-            });
+            expect(() => pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
+            done();
         })
     });
 
