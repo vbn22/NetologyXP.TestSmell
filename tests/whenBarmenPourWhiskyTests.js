@@ -1,10 +1,7 @@
 import assert from 'assert'
 import { pour, free as freeBarmen } from '../src/barmen'
 import { drink, sober, goToBar, getMyCar, getTotallyDrunked, isDrunked } from '../src/me'
-//import { download } from '../src/imageDownloader'
-import fs from 'fs'
 import { expect } from 'chai'
-import username from 'username'
 
 
 suite('when barmen pour whisky', function () {
@@ -14,8 +11,8 @@ suite('when barmen pour whisky', function () {
         this.whisky = 'Whisky';
         goToBar(car);
         freeBarmen();
-        done();
 
+        done();
     });
 
     suite('i ask 50 grams', function () {
@@ -36,18 +33,19 @@ suite('when barmen pour whisky', function () {
         test('I get an error', function (done) {
             var iAskVolume = -10;
             expect(() => pour(this.whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
+
             done();
         });
 
 
     });
 
-    suite('i ask 500 grams', function() {
+    suite('i ask 200+ grams', function() {
         test('Barmen said there is no such glass', function(done) {
-            var iAskVolume = 500;
+            var iAskVolume = 200+100;
             var whisky = 1;
-
             expect(() => pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
+            
             done();
         })
     });
